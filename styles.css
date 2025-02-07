@@ -12,19 +12,19 @@ body {
     position: absolute; /* Positions the glow background absolutely */
     width: 100%; /* Sets the width to 100% of the viewport */
     height: 100%; /* Sets the height to 100% of the viewport */
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%, rgba(255, 255, 255, 0) 100%); /* Creates a radial gradient for the glow effect */
-    animation: glow 3s infinite alternate; /* Applies the glow animation */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(112, 45, 164, 0.3) 50%, rgb(0, 0, 0) 100%); /* Brighter radial gradient for the glow effect */
+    animation: glow 3s infinite alternate; /* Slower glow animation for a more aesthetic effect */
     z-index: -1; /* Places the glow background behind the calculator */
 }
 
 @keyframes glow {
     0% {
         transform: scale(1); /* Starts with the original size */
-        opacity: 0.5; /* Starts with 50% opacity */
+        opacity: 0; /* Starts with 60% opacity for a brighter effect */
     }
     100% {
-        transform: scale(1.1); /* Scales up to 110% size */
-        opacity: 0.8; /* Increases opacity to 80% */
+        transform: scale(1.27); /* Scales up to 110% size */
+        opacity: 1; /* Increases opacity to 90% for a brighter effect */
     }
 }
 
@@ -63,7 +63,11 @@ body {
     background-color: #3772FF; /* Sets the background color of buttons */
     color: white; /* Sets the text color to white */
     cursor: pointer; /* Changes cursor to pointer on hover */
-    transition: background-color 0.3s; /* Adds a transition effect for background color */
+    transition: background-color 0.3s, transform 0.3s; /* Adds a transition effect for background color */
+}
+
+.btn:active {
+    background-color: #2a5bb0; /* Darker shade for active state */
 }
 
 .btn:hover {
@@ -74,8 +78,13 @@ body {
     background-color: #DF2935; /* Sets the background color for operator buttons */
 }
 
+.operator:active {
+    background-color: #b02025; /* Darker shade for active state */
+}
+
 .operator:hover {
-    background-color: #E6E8E6; /* Changes background color on hover for operator buttons */
+    background-color: #c72a2a; /* Change hover color to a darker red that contrasts with the white background */
+    color: #ffffff; /* Keep text color white for contrast */
 }
 
 /* Styles for the navigation bar */
@@ -103,7 +112,7 @@ body {
 
 .nav-content {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
