@@ -52,11 +52,11 @@ body {
 .buttons {
     display: grid; /* Uses grid layout for buttons */
     grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
-    gap: 15px; /* Adds space between buttons */
+    gap: 10px; /* Reduces space between buttons */
 }
 
 .btn {
-    padding: 25px; /* Adds padding inside buttons */
+    padding: 20px; /* Adjust padding for uniformity */
     font-size: 20px; /* Sets the font size for buttons */
     border: none; /* Removes the border */
     border-radius: 5px; /* Rounds the corners of buttons */
@@ -64,6 +64,7 @@ body {
     color: white; /* Sets the text color to white */
     cursor: pointer; /* Changes cursor to pointer on hover */
     transition: background-color 0.3s, transform 0.3s; /* Adds a transition effect for background color */
+    height: 60px; /* Sets a fixed height for buttons */
 }
 
 .btn:active {
@@ -85,6 +86,17 @@ body {
 .operator:hover {
     background-color: #c72a2a; /* Change hover color to a darker red that contrasts with the white background */
     color: #ffffff; /* Keep text color white for contrast */
+}
+
+.equals {
+    grid-column: span 2; /* Makes the equals button span two columns */
+    background-color: #28a745; /* Green background for the equals button */
+    font-size: 24px; /* Larger font size for emphasis */
+    height: 60px; /* Ensures equals button height matches others */
+}
+
+.equals:hover {
+    background-color: #218838; /* Darker green on hover */
 }
 
 /* Styles for the navigation bar */
