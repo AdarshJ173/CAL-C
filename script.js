@@ -16,10 +16,19 @@ buttons.forEach(button => { // Loops through each button
 
 equalsButton.addEventListener('click', () => { // Adds a click event listener to the equals button
     try {
-        const result = eval(currentInput); // Evaluates the current input as a mathematical expression
+        // Validate the expression before evaluating
+        if (currentInput.trim() === '') {
+            throw new Error('No input'); // Throw an error if input is empty
+        }
+        // Sanitize input to prevent errors
+        const sanitizedInput = currentInput.replace(/[^0-9+\-*/().]/g, ''); // Allow only valid characters
+        const result = Function('"use strict";return (' + sanitizedInput + ')')(); // Evaluates the sanitized input
+        if (result === Infinity || isNaN(result)) {
+            throw new Error('Invalid operation'); // Handle division by zero or invalid operations
+        }
         display.value = result; // Displays the result in the display
         currentInput = ''; // Resets the current input
-    } catch {
+    } catch (error) {
         display.value = 'Error'; // Displays 'Error' if evaluation fails
         currentInput = ''; // Resets the current input
     }
@@ -40,12 +49,21 @@ document.addEventListener('keydown', (event) => { // Adds a keydown event listen
     if (!isNaN(event.key) || ['+', '-', '*', '/'].includes(event.key)) { // Checks if the key is a number or an operator
         currentInput += event.key; // Appends the key to the current input
         display.value = currentInput; // Updates the display with the current input
-    } else if (event.key === 'Enter') { // Checks if the Enter key is pressed
+    } else if (event.key === 'Enter' || event.key === '=') { // Checks if the Enter key or '=' key is pressed
         try {
-            const result = eval(currentInput); // Evaluates the current input
+            // Validate the expression before evaluating
+            if (currentInput.trim() === '') {
+                throw new Error('No input'); // Throw an error if input is empty
+            }
+            // Sanitize input to prevent errors
+            const sanitizedInput = currentInput.replace(/[^0-9+\-*/().]/g, ''); // Allow only valid characters
+            const result = Function('"use strict";return (' + sanitizedInput + ')')(); // Evaluates the sanitized input
+            if (result === Infinity || isNaN(result)) {
+                throw new Error('Invalid operation'); // Handle division by zero or invalid operations
+            }
             display.value = result; // Displays the result
             currentInput = ''; // Resets the current input
-        } catch {
+        } catch (error) {
             display.value = 'Error'; // Displays 'Error' if evaluation fails
             currentInput = ''; // Resets the current input
         }
