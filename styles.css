@@ -1,0 +1,150 @@
+body {
+    background-color: #080708; /* Sets the background color of the body */
+    display: flex; /* Uses flexbox layout for centering */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    height: 100vh; /* Sets the height to 100% of the viewport height */
+    font-family: Arial, sans-serif; /* Sets the font family for the text */
+    overflow: hidden; /* Prevents scrolling */
+}
+
+.glow-background {
+    position: absolute; /* Positions the glow background absolutely */
+    width: 100%; /* Sets the width to 100% of the viewport */
+    height: 100%; /* Sets the height to 100% of the viewport */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%, rgba(255, 255, 255, 0) 100%); /* Creates a radial gradient for the glow effect */
+    animation: glow 3s infinite alternate; /* Applies the glow animation */
+    z-index: -1; /* Places the glow background behind the calculator */
+}
+
+@keyframes glow {
+    0% {
+        transform: scale(1); /* Starts with the original size */
+        opacity: 0.5; /* Starts with 50% opacity */
+    }
+    100% {
+        transform: scale(1.1); /* Scales up to 110% size */
+        opacity: 0.8; /* Increases opacity to 80% */
+    }
+}
+
+.calculator {
+    background-color: #E6E8E6; /* Sets the background color of the calculator */
+    border-radius: 10px; /* Rounds the corners of the calculator */
+    padding: 30px; /* Adds padding inside the calculator */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Adds a shadow effect around the calculator */
+    width: 400px; /* Sets a fixed width for the calculator */
+}
+
+#display {
+    width: 95%; /* Sets the width of the display input */
+    height: 60px; /* Sets the height of the display input */
+    font-size: 28px; /* Sets the font size for the display */
+    text-align: right; /* Aligns text to the right */
+    border: none; /* Removes the border */
+    border-radius: 5px; /* Rounds the corners of the display */
+    margin-bottom: 15px; /* Adds space below the display */
+    padding: 10px; /* Adds padding inside the display */
+    background-color: #DF2935; /* Sets the background color of the display */
+    color: white; /* Sets the text color to white */
+}
+
+.buttons {
+    display: grid; /* Uses grid layout for buttons */
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+    gap: 15px; /* Adds space between buttons */
+}
+
+.btn {
+    padding: 25px; /* Adds padding inside buttons */
+    font-size: 20px; /* Sets the font size for buttons */
+    border: none; /* Removes the border */
+    border-radius: 5px; /* Rounds the corners of buttons */
+    background-color: #3772FF; /* Sets the background color of buttons */
+    color: white; /* Sets the text color to white */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s; /* Adds a transition effect for background color */
+}
+
+.btn:hover {
+    background-color: #FDCA40; /* Changes background color on hover */
+}
+
+.operator {
+    background-color: #DF2935; /* Sets the background color for operator buttons */
+}
+
+.operator:hover {
+    background-color: #E6E8E6; /* Changes background color on hover for operator buttons */
+}
+
+/* Styles for the navigation bar */
+.nav-bar {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.1); /* Dark background */
+    color: white;
+    text-align: center;
+    padding: 20px 0; /* Increased padding for a taller nav bar */
+    z-index: 1000; /* Ensure it appears above other content */
+    transition: opacity 5s ease-in-out; /* Fade transition for opacity */
+    opacity: 0; /* Start with opacity 0 */
+    transform: translateY(-20px); /* Start slightly above */
+}
+
+.nav-bar.active {
+    display: block; /* Show when active */
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide down effect */
+}
+
+.nav-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-content .logo {
+    margin: 0 20px;
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s, text-shadow 0.3s; /* Smooth transition for color and shadow */
+}
+
+.nav-content .logo:hover {
+    color: #ffffff; /* Change color on hover */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8); /* Enhanced white glow effect */
+}
+
+/* Styles for links */
+.nav-content a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s, transform 0.3s; /* Smooth transition for color and transform */
+}
+
+.nav-content a:hover {
+    color: #ffcc00; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    /* Removed glowing effect on hover */
+}
+
+/* Styles for the info button */
+.info-button {
+    position: fixed; /* Fixes the button's position */
+    top: 20px; /* Positions it 20px from the top */
+    right: 20px; /* Positions it 20px from the right */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    color: white; /* Sets the icon color to white */
+    font-size: 24px; /* Sets the font size for the icon */
+    transition: transform 0.3s; /* Adds a transition effect for scaling */
+    z-index: 1000; /* Ensures it appears above other elements */
+}
+
+.info-button:hover {
+    transform: scale(1.1); /* Slightly enlarges the button on hover */
+}

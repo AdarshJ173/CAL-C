@@ -1,0 +1,65 @@
+<!-- Declares the document type as HTML5 -->
+<!DOCTYPE html>
+<html lang="en"> <!-- Defines the root HTML element and sets the language to English -->
+<head>
+    <!-- Sets the character encoding to UTF-8 for universal text compatibility -->
+    <meta charset="UTF-8">
+    <!-- Ensures proper rendering on mobile devices by setting viewport properties -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Defines the title of the webpage, shown on the browser tab -->
+    <title>Cal-C</title>
+    <!-- Links an external CSS file for styling the calculator -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Background glow effect container -->
+    <div class="glow-background"></div>
+    
+    <!-- Main calculator container -->
+    <div class="calculator">
+        <!-- Display input field to show user input and results, disabled to prevent manual editing -->
+        <input type="text" id="display" disabled />
+        
+        <!-- Button container for calculator keys -->
+        <div class="buttons">
+            <!-- Number and operator buttons with data-value attributes for JavaScript functionality -->
+            <button class="btn" data-value="7">7</button>
+            <button class="btn" data-value="8">8</button>
+            <button class="btn" data-value="9">9</button>
+            <button class="btn operator" data-value="/">/</button> <!-- Division operator -->
+            <button class="btn" data-value="4">4</button>
+            <button class="btn" data-value="5">5</button>
+            <button class="btn" data-value="6">6</button>
+            <button class="btn operator" data-value="*">*</button> <!-- Multiplication operator -->
+            <button class="btn" data-value="1">1</button>
+            <button class="btn" data-value="2">2</button>
+            <button class="btn" data-value="3">3</button>
+            <button class="btn operator" data-value="-">-</button> <!-- Subtraction operator -->
+            <button class="btn" data-value="0">0</button>
+            <button class="btn operator" data-value="+">+</button> <!-- Addition operator -->
+            <button class="btn operator" id="equals">=</button> <!-- Equals button to evaluate expressions -->
+            <button class="btn operator" id="clear">C</button> <!-- Clear button to reset the display -->
+        </div>
+    </div>
+
+    <!-- New navigation bar for social media links -->
+    <nav class="nav-bar" id="navBar">
+        <div class="nav-content">
+            <div class="logo">AAJ</div>
+            <a href="https://github.com/AdarshJ173" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/a-adarsh-jagannath-968147243" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://twitter.com/codexaaj" target="_blank"><i class="fab fa-x"></i> Twitter</a>
+        </div>
+    </nav>
+
+    <!-- Updated info button to toggle the navigation bar -->
+    <div class="info-button" id="infoButton">
+        <i class="fas fa-info-circle"></i> <!-- Info icon -->
+    </div>
+
+    <!-- Links the external JavaScript file to add calculator functionality -->
+    <script src="script.js"></script>
+</body>
+</html>
